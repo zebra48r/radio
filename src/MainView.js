@@ -1,4 +1,4 @@
-'use esversion: 6'
+// 'use esversion: 6'
 import React from 'react';
 import './MainView.css';
 import axios from 'axios';
