@@ -2,7 +2,7 @@
 import React from 'react';
 import './MainView.css';
 import axios from 'axios';
-// import getTrackList from './GetTrackList';
+import Ticker from 'react-ticker'
 
 
 
@@ -16,7 +16,66 @@ class ShowTrackList extends React.Component {
     </div>);
   }
 }
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: '',
+      createdAt: '',
+      name: '',
+      sum:'',
+      typeofdonations:''
+    };
+  }
+useEffect(() => {
+  getDonationList() {
 
+    var config = {
+      method: 'get',
+      url: 'https://5f801617d6aabe00166f0e2f.mockapi.io/api/v1/donations',
+      headers: {}
+    };
+
+    axios(config)
+      .then(response => {
+        //console.log(response.data);
+        let id = response.data[0].id;
+        let name = response.data[0].name;
+        let sum = response.data[0].sum;
+        let typeofdonations = response.data[0].typeofdonations;
+        console.log(response.data);
+        //let tracksarray = 
+        //console.log(trackname);
+        // console.log(JSON.stringify(response.data));
+        this.setState({ id: id, name: name, sum: sum,typeofdonations:typeofdonations });
+        console.log(this.state);
+
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  }
+}, []);
+
+
+
+
+  render() {
+    return (
+      <div className="Header">
+        {this.getDonationList()}
+          <Ticker>
+            {() => (
+                <div>
+                    <h1>Best Donation:{this.state.name} {this.state.sum}; </h1>
+                </div>
+            )}
+          </Ticker>
+          </div>
+    )
+  }
+  }
 class MainView extends React.Component {
 
   constructor(props) {
@@ -65,8 +124,13 @@ class MainView extends React.Component {
       tracks: this.state.tracksarray,
       album: this.state.album
     };
+    const donations = {
+      name:"Paul",
+      sum:"$5000"
+    }
     return (
       <div>
+        <Header d={donations}></Header>
         <ShowTrackList key={traklistinfo.tracks.id} t={traklistinfo}></ShowTrackList>
         <button onClick={() => this.getTrackList()}>Получить инфо о композиции</button>
 

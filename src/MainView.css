@@ -1,3 +1,23 @@
+.Header{
+  text-align: center;
+  border: black;
+  border: solid;
+  border-width: 2px;
+  padding: 10px;
+  background-color: chartreuse;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: larger;
+}
+
+.AnimatedString{
+  width: '200px';
+  whiteSpace: 'nowrap';
+}
+
+@keyframes marquee {
+  0%   { transform: translate(0, 0); animation-timing-function: ease-in;}
+  100% { transform: translate(-100%, 0); animation-timing-function: ease-out;}
+}
 .MainView {
   text-align: center;
 }
