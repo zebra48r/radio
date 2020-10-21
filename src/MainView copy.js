@@ -9,13 +9,9 @@ import Ticker from 'react-ticker'
 class ShowTrackList extends React.Component {
   render() {
     return (<div>
-      <p>Композиция: {this.props.t.track}</p>
-      <p>Альбом: {this.props.t.album}</p>
-      <p>Лого: <img src={this.props.t.logo} width="200" height="200" alt="logo.jpg"></img></p>
-      <p>Исполнитель: {this.props.t.artist}</p>
-      <p>ID: {this.props.t.songid}</p>
-      <p>Полное название: {this.props.t.fullname}</p>
-      <p>Стример: {this.props.t.streamer}</p>
+      <p>track: {this.props.t.track}</p>
+      <p>album: {this.props.t.album}</p>
+      <div>tracks: <ul>{this.props.t.tracks}</ul></div>
 
     </div>);
   }
@@ -83,8 +79,8 @@ class MainView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      track: '',
-      album: '',
+      tracklist: '1',
+      album: '2',
       tracksarray: []
     };
   }
@@ -93,28 +89,21 @@ class MainView extends React.Component {
 
     var config = {
       method: 'get',
-      url: 'http://192.168.100.223/api/nowplaying/russian_rock',
+      url: 'https://5f801617d6aabe00166f0e2f.mockapi.io/api/v1/tracklist',
       headers: {}
     };
 
     axios(config)
       .then(response => {
-        console.log(response.data);
-        let now_playing = response.data.now_playing;
-        let trackname = response.data.now_playing.song.title;
-        let albumname = response.data.now_playing.song.album;
-        let logo = response.data.now_playing.song.art;
-        let artist = response.data.now_playing.song.artist;
-        let songid = response.data.now_playing.song.id;
-        let fullname = response.data.now_playing.song.text;
-        let streamer = response.data.now_playing.streamer;
-        console.log(trackname,albumname);
-        // let tracksarray = response.data.map(now_playing => <ul>{now_playing.sh_id}--{now_playing.album}--{now_playing.song.title}--{now_playing.song.album}--{now_playing.played_at}</ul>);
+        //console.log(response.data);
+        let trackname = response.data[0].track;
+        let albumname = response.data[0].album;
+        let tracksarray = response.data.map(trackname => <ul>{trackname.id}--{trackname.album}--{trackname.track}--{trackname.album}--{trackname.createdAt}</ul>);
         console.log(response.data);
         //let tracksarray = 
         //console.log(trackname);
         // console.log(JSON.stringify(response.data));
-        this.setState({ track: trackname, album: albumname,logo:logo,artist:artist,songid:songid,fullname:fullname,streamer:streamer});
+        this.setState({ tracklist: trackname, album: albumname, tracksarray: [tracksarray] });
         //console.log(this.state);
       })
       .catch(error => {
@@ -129,13 +118,9 @@ class MainView extends React.Component {
   // }
   render() {
     const traklistinfo = {
-      track: this.state.track,
-      album: this.state.album,
-      logo:this.state.logo,
-      artist:this.state.artist,
-      songid:this.state.songid,
-      fullname:this.state.fullname,
-      streamer:this.state.streamer
+      track: this.state.tracklist,
+      tracks: this.state.tracksarray,
+      album: this.state.album
     };
     const donations = {
       name:"Paul",
@@ -144,7 +129,7 @@ class MainView extends React.Component {
     return (
       <div>
         {/* <Header d={donations}></Header> */}
-        <ShowTrackList t={traklistinfo}></ShowTrackList>
+        <ShowTrackList key={traklistinfo.tracks.id} t={traklistinfo}></ShowTrackList>
         <button onClick={() => this.getTrackList()}>Получить инфо о композиции</button>
 
       </div>
