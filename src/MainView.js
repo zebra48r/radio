@@ -12,7 +12,9 @@ class MainView extends React.Component {
       name: "Paul",
       sum: "$5000"
     }
+    
     return (
+      
       <div>
         {/* <Header d={donations}></Header> */}
 
