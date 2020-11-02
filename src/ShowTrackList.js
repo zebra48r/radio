@@ -4,10 +4,10 @@ export class ShowTrackList extends React.Component {
   render() {
     return (
 
-      <div>
+      <div className="Text">
         <p>Композиция: {this.props.t.track}</p>
         <p>Альбом: {this.props.t.album}</p>
-        <p>Лого: <img src={this.props.t.logo} width="200" height="200" alt="logo.jpg"></img></p>
+        <p id = "albumlogo"><img src={this.props.t.logo} width="400" height="400" alt="logo.jpg"></img></p>
         <p>Исполнитель: {this.props.t.artist}</p>
         <p>ID: {this.props.t.songid}</p>
         <p>Полное название: {this.props.t.fullname}</p>
