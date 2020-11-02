@@ -31,7 +31,7 @@ export class GetTrackInfo extends React.Component {
 
     await axios(config)
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         let now_playing = response.data.now_playing;
         let trackname = response.data.now_playing.song.title;
         let albumname = response.data.now_playing.song.album;
@@ -50,12 +50,7 @@ export class GetTrackInfo extends React.Component {
         elapsed = sec2time(elapsed);
         remaining = sec2time(remaining);
         played_at = Date(played_at);
-        // console.log(trackname, albumname);
-        // let tracksarray = response.data.map(now_playing => <ul>{now_playing.sh_id}--{now_playing.album}--{now_playing.song.title}--{now_playing.song.album}--{now_playing.played_at}</ul>);
-        // console.log(response.data);
-        //let tracksarray = 
-        //console.log(trackname);
-        // console.log(JSON.stringify(response.data));
+ 
         this.setState({
           track: trackname, album: albumname, logo: logo, artist: artist, songid: songid, fullname: fullname, duration: duration, elapsed: elapsed,
           played_at: played_at, remaining: remaining, sh_id: sh_id, streamer: streamer

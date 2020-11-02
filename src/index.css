@@ -1,16 +1,76 @@
 /* .MainScreen {
   background-color: black;
 } */
+/* position: relative, иконке position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); */
 p {
   color: white;
 }
-#albumlogo {
-  position: fixed;
-  top: 34%;
-  left: 42%;
+
+/* #albumlogo {
+
+} */
+
+#radioname{
+  z-index: 3;
+  position: absolute;
+  left: 50%;
+   top: 0%;
+  transform: translate(-50%,-50%);
+  font-size: xxx-large;
+  font-family: 'Capture Smallz';
+  color: white;
+}
+#albumlogoimg {
+
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+   top: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 2800px; /* Радиус скругления */
+  border: 2px solid rgb(255, 255, 255); 
+  box-shadow: 0 0 7px #666; /* Параметры тени */
 }
 #playerCanvas {
-  position: fixed;
+  position: absolute;
+  z-index: 1;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  /* position: relative;*/
+  left: 50%;
+   top: 50%;
+  transform: translate(-50%,-50%); 
+}
+#fullname {
+  z-index: 3;
+  position: absolute;
+  left: 50%;
+   top: 80%;
+  transform: translate(-50%,-50%);
+  font-size: xxx-large;
+  font-family: 'Capture Smallz';
+
+}
+#duration {
+  z-index: 4;
+  position: absolute;
+  left: 40%;
+   top: 84%;
+  transform: translate(-50%,-50%);
+  font-size: xxx-large;
+  font-family: 'Capture Smallz';
+
+}
+#elapsed {
+  z-index: 4;
+  position: absolute;
+  left: 60%;
+   top: 84%;
+  transform: translate(-50%,-50%);
+  font-size: xxx-large;
+  font-family: 'Capture Smallz';
+
 }
 body {
   background-color: black;
@@ -25,4 +85,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+@font-face {
+  font-family: 'Capture Smallz';
+  src: local('Capture Smallz'), url(./20082.ttf) format('truetype');
 }
