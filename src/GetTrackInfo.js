@@ -31,7 +31,7 @@ export class GetTrackInfo extends React.Component {
 
     await axios(config)
       .then(response => {
-        // console.log(response.data);
+        console.log(response.data);
         let now_playing = response.data.now_playing;
         let trackname = response.data.now_playing.song.title;
         let albumname = response.data.now_playing.song.album;
@@ -45,6 +45,7 @@ export class GetTrackInfo extends React.Component {
         let remaining = response.data.now_playing.remaining;
         let sh_id = response.data.now_playing.sh_id;
         let streamer = response.data.now_playing.streamer;
+        let playNextFullName = response.data.playing_next.song.text;
         //convert seconds to HH:mm:ss with sec2time function
         duration = sec2time(duration);
         elapsed = sec2time(elapsed);
@@ -53,7 +54,7 @@ export class GetTrackInfo extends React.Component {
  
         this.setState({
           track: trackname, album: albumname, logo: logo, artist: artist, songid: songid, fullname: fullname, duration: duration, elapsed: elapsed,
-          played_at: played_at, remaining: remaining, sh_id: sh_id, streamer: streamer
+          played_at: played_at, remaining: remaining, sh_id: sh_id, streamer: streamer, playNextFullName:playNextFullName
         });
         //console.log(this.state);
       })
@@ -85,7 +86,8 @@ export class GetTrackInfo extends React.Component {
       played_at: this.state.played_at,
       remaining: this.state.remaining,
       sh_id: this.state.sh_id,
-      streamer: this.state.streamer
+      streamer: this.state.streamer,
+      playNextFullName: this.state.playNextFullName
     };
     return (<div><ShowTrackList t={traklistinfo}></ShowTrackList></div>);
   }

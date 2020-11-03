@@ -11,6 +11,7 @@ export class ShowTrackList extends React.Component {
         {/* <p id = "album">Альбом: {this.props.t.album}</p>  */}
         {/* <p id = "artist">Исполнитель: {this.props.t.artist}</p> */}
         {/* <p id = "songid">ID: {this.props.t.songid}</p> */}
+        <p id = "now_play">Сейчас играет:</p>
         <p id = "fullname">{this.props.t.fullname}</p>
         <p id = "duration">{this.props.t.duration}</p>
         <p id = "elapsed">{this.props.t.elapsed}</p>
@@ -18,6 +19,8 @@ export class ShowTrackList extends React.Component {
         {/* <p id = "remaining">Осталось играть:{this.props.t.remaining}</p> */}
         {/* <p id = "sh_id">sh_id:{this.props.t.sh_id}</p>
         <p id = "streamer">Стример: {this.props.t.streamer}</p> */}
+        <p id = "playNextText">Следующая песня:</p>
+        <p id = "playNextFullName">{this.props.t.playNextFullName}</p>
       </div>);
   }
 }

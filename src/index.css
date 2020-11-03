@@ -11,6 +11,7 @@ p {
 } */
 
 #radioname{
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   z-index: 3;
   position: absolute;
   left: 50%;
@@ -42,35 +43,73 @@ p {
    top: 50%;
   transform: translate(-50%,-50%); 
 }
+
+
+#now_play{
+  z-index: 3;
+  position: absolute;
+  left: 50%;
+   top: 5%;
+  transform: translate(-50%,-50%);
+  font-size: xxx-large;
+  font-family: 'Capture Smallz';
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 #fullname {
   z-index: 3;
+  position: absolute;
+  left: 50%;
+   top: 10%;
+  transform: translate(-50%,-50%);
+  font-size: xxx-large;
+  font-family: 'Capture Smallz';
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#duration {
+  z-index: 4;
+  position: absolute;
+  left: 40%;
+   top: 15%;
+  transform: translate(-50%,-50%);
+  font-size: xxx-large;
+  font-family: 'Capture Smallz';
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#elapsed {
+  z-index: 4;
+  position: absolute;
+  left: 60%;
+   top: 15%;
+  transform: translate(-50%,-50%);
+  font-size: xxx-large;
+  font-family: 'Capture Smallz';
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+
+#playNextText{
+  z-index: 5;
+  position: absolute;
+  left: 50%;
+   top: 75%;
+  transform: translate(-50%,-50%);
+  font-size: xxx-large;
+  font-family: 'Capture Smallz';
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+ 
+}
+
+#playNextFullName{
+  
+  z-index: 5;
   position: absolute;
   left: 50%;
    top: 80%;
   transform: translate(-50%,-50%);
   font-size: xxx-large;
   font-family: 'Capture Smallz';
-
-}
-#duration {
-  z-index: 4;
-  position: absolute;
-  left: 40%;
-   top: 84%;
-  transform: translate(-50%,-50%);
-  font-size: xxx-large;
-  font-family: 'Capture Smallz';
-
-}
-#elapsed {
-  z-index: 4;
-  position: absolute;
-  left: 60%;
-   top: 84%;
-  transform: translate(-50%,-50%);
-  font-size: xxx-large;
-  font-family: 'Capture Smallz';
-
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 body {
   background-color: black;
