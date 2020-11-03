@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './index.css';
 import MainView from './MainView';
+import Chiptune from './8bit/Chiptune';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MainView />
+    <Router>
+      <Switch>
+      <Route path="/" component={MainView}></Route>
+      <Route path="/chiptune" component={Chiptune}></Route>
+      {/* <MainView path = "/"/>
+    <Chiptune path = "chiptune"/> */}
+    </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
